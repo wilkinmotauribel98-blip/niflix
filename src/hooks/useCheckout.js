@@ -27,7 +27,4 @@ export const useCheckout = create(
         set({shippingForm: {}, paymentForm: {}, isDone: false, isReviewed: false, isPaymentFormFulfilled: false, isShippingFormFulfilled: false, orderNumber: null})
       }
     })
-    
-    
-
 )
