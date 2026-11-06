@@ -1,48 +1,48 @@
-# NIFLIX — Tienda en línea (Ecommerce App)
+# NIFLIX — Online Store (Ecommerce App)
 
-Frontend de ecommerce construido con React + Vite + Tailwind. Catálogo, búsqueda en vivo, filtros, carrito persistente y checkout simulado en 4 pasos. Datos de `dummyjson.com`.
+Ecommerce frontend built with React + Vite + Tailwind. Catalog, live search, filters, persistent cart and a simulated 4-step checkout. Data from `dummyjson.com`.
 
-**Demo en vivo:** https://wilkinmotauribel98-blip.github.io/ecommerce-app
-**Repositorio:** https://github.com/wilkinmotauribel98-blip/ecommerce-app
+**Live demo:** https://wilkinmotauribel98-blip.github.io/ecommerce-app
+**Repository:** https://github.com/wilkinmotauribel98-blip/ecommerce-app
 
-> Proyecto de portafolio. Sin backend real, autenticación ni pagos — el checkout es simulado.
+> Portfolio project. No real backend, authentication or payments — checkout is simulated.
 
-## Capturas
+## Screenshots
 
-![Inicio](docs/home.png)
-![Tienda](docs/shop.png)
-![Categorías](docs/categories.png)
-![Categoría](docs/category.png)
-![Búsqueda](docs/search.png)
-![Producto](docs/product.png)
-![Carrito](docs/cart.png)
+![Home](docs/home.png)
+![Shop](docs/shop.png)
+![Categories](docs/categories.png)
+![Category](docs/category.png)
+![Search](docs/search.png)
+![Product](docs/product.png)
+![Cart](docs/cart.png)
 ![Checkout](docs/checkout.png)
-![Pago](docs/payment.png)
-![Revisión](docs/review.png)
-![Confirmación](docs/done.png)
-![Soporte](docs/support.png)
+![Payment](docs/payment.png)
+![Review](docs/review.png)
+![Confirmation](docs/done.png)
+![Support](docs/support.png)
 
-## Tecnologías
+## Technologies
 
 - React 18.3, React Router 6.26, Vite 5.4
 - Tailwind CSS 4.3 + @tailwindcss/vite
-- zustand 4.5 (solo el carrito persiste en `localStorage` como `client-storage`)
-- react-hook-form 7.86, libphonenumber-js (validación de teléfono DO)
-- Imágenes optimizadas con `wsrv.nl` (helper centralizado `optimizedImg`)
+- zustand 4.5 (only the cart persists in `localStorage` as `client-storage`)
+- react-hook-form 7.86, libphonenumber-js (DO phone validation)
+- Images optimized with `wsrv.nl` (centralized `optimizedImg` helper)
 
-## Funcionalidades
+## Features
 
-- Inicio: carrusel hero, accesos a categorías, novedades, más vendidos, newsletter
-- Tienda `/ecommerce-app/shop` con paginación; página de Categorías con conteo de productos
-- Detalle de categoría con filtros de precio/marca/calificación y botón `Clear All`
-- Detalle de producto: descuento, stock, peso, dimensiones, pedido mínimo, cantidad, `Add to cart` y `Buy Now`, garantías, pestañas (Descripción/Especificaciones/Reseñas) y recomendaciones
-- Búsqueda en vivo con sugerencias (`/ecommerce-app/results/search?q=`); sin historial de búsquedas persistido
-- Carrito: agregar / cantidad / eliminar, drawer + página, impuesto del 18% (`TAX_RATE`), persistido en `localStorage`, productos relacionados
-- Checkout con rutas anidadas: `shipping → payment → review → done`, formularios validados con react-hook-form, detección del tipo de tarjeta en vivo, número de pedido con botón para copiar
-- Responsive: Header de escritorio + BottomNavbar móvil, skeletons, rutas lazy con `Suspense`
-- Página de Soporte con buscador de ayuda, 6 temas y contacto 24/7
+- Home: hero carousel, category shortcuts, new arrivals, best sellers, newsletter
+- Shop `/ecommerce-app/shop` with pagination; Categories page with product counts
+- Category detail with price/brand/rating filters and a `Clear All` button
+- Product detail: discount, stock, weight, dimensions, minimum order, quantity, `Add to cart` and `Buy Now`, warranties, tabs (Description/Specifications/Reviews) and recommendations
+- Live search with suggestions (`/ecommerce-app/results/search?q=`); no persisted search history
+- Cart: add / quantity / remove, drawer + page, 18% tax (`TAX_RATE`), persisted in `localStorage`, related products
+- Checkout with nested routes: `shipping → payment → review → done`, forms validated with react-hook-form, live card type detection, order number with copy button
+- Responsive: desktop Header + mobile BottomNavbar, skeletons, lazy routes with `Suspense`
+- Support page with help search, 6 topics and 24/7 contact
 
-## Inicio rápido
+## Quick start
 
 ```bash
 npm install
@@ -51,54 +51,54 @@ npm run build
 npm run preview
 ```
 
-No se necesita `.env`. La URL de la API está fija en `https://dummyjson.com` dentro de `src/api/products.js`.
+No `.env` is needed. The API URL is hardcoded to `https://dummyjson.com` in `src/api/products.js`.
 
-## Arquitectura
+## Architecture
 
 ```text
 src/
-  App.jsx            # rutas + páginas lazy, base /ecommerce-app
+  App.jsx            # routes + lazy pages, base /ecommerce-app
   main.jsx           # BrowserRouter + StrictMode
   api/products.js    # fetchProduct, fetchCategories, searchProducts
   hooks/
-    useFetch.js      # fetch genérico + AbortController
-    useProducts.js   # productos del home (caché en memoria de 1 h, sin persistencia)
-    useCart.js       # carrito {id -> producto}, impuesto 0.18 (TAX_RATE, persist: client-storage)
-    useCheckout.js   # datos de envío + pago del checkout (sin persistencia)
+    useFetch.js      # generic fetch + AbortController
+    useProducts.js   # home products (1 h in-memory cache, no persistence)
+    useCart.js       # cart {id -> product}, 0.18 tax (TAX_RATE, persist: client-storage)
+    useCheckout.js   # checkout shipping + payment data (no persistence)
   context/
-    PageContext.jsx  # página actual según la ubicación
+    PageContext.jsx  # current page based on location
   pages/             # Home, Shop, Category, Categories, Product, Results, Cart, Checkout, Support, NotFound
   components/
     cart/ checkout/ product/ category/ shop/ results/ support/
     layout/header + bottomNavbar + footer/
     ui/              # Button, Badge, Skeleton, Suggestions, AddToCart, etc.
-                     # (sin componentes Icon/Sprite: los iconos son <svg><use> en línea
-                     #  con publicUrl() + sprites en public/: sprite-core/extra, payment-icons)
+                     # (no Icon/Sprite components: icons are inline <svg><use>
+                     #  with publicUrl() + sprites in public/: sprite-core/extra, payment-icons)
   sections/          # Hero, BestSellers, NewArrivals, TrustBar, Newsletter, etc.
   utils/
     loading.js             # preloadImages, minDelay
-    optimizedImg.js        # URLs optimizadas vía wsrv.nl
-    publicUrl.js           # URLs públicas con import.meta.env.BASE_URL
-    location.js            # países (Intl) + ciudades RD sin dependencias pesadas
-    getCardType.js         # detección de marca (visa, mastercard, amex…)
-    detectCardTypeLive.js  # detección en vivo mientras se escribe
+    optimizedImg.js        # optimized URLs via wsrv.nl
+    publicUrl.js           # public URLs with import.meta.env.BASE_URL
+    location.js            # countries (Intl) + DO cities without heavy dependencies
+    getCardType.js         # brand detection (visa, mastercard, amex…)
+    detectCardTypeLive.js  # live detection while typing
 ```
 
-Rutas: todas empiezan con `/ecommerce-app` (`vite.config.js: base`). El checkout usa `<Outlet/>` anidado con redirección al paso `shipping`.
+Routes: all start with `/ecommerce-app` (`vite.config.js: base`). Checkout uses a nested `<Outlet/>` with a redirect to the `shipping` step.
 
-Estado: zustand + persist, sin Redux. Formularios con react-hook-form.
+State: zustand + persist, no Redux. Forms with react-hook-form.
 
-## Qué haría en producción
+## What I would do in production
 
-1. Backend real + Stripe (nunca guardar datos de tarjeta — hoy el checkout es solo demo)
-2. Autenticación, pedidos, cupones, wishlist, panel admin
-3. Endurecer guards entre pasos del checkout y ampliar la cobertura de `ErrorBoundary` y estados vacíos/de error
-4. `eslint + prettier + vitest + Playwright`, `.env` para la URL de la API, eliminar código muerto
+1. Real backend + Stripe (never store card data — today checkout is only a demo)
+2. Authentication, orders, coupons, wishlist, admin panel
+3. Harden guards between checkout steps and broaden `ErrorBoundary` and empty/error state coverage
+4. `eslint + prettier + vitest + Playwright`, `.env` for the API URL, remove dead code
 5. SSR/prerender + JSON-LD, robots/sitemap, i18n
-6. Dividir el bundle principal (hoy supera los 500 kB que advierte Vite)
+6. Split the main bundle (today it exceeds the 500 kB Vite warning)
 
-## Limitaciones conocidas
+## Known limitations
 
-- Datos públicos de `dummyjson.com`, total `194` fijo en `RenderAllProducts.jsx`
-- Sin tests ni linter; interfaz en inglés
-- Imágenes con `loading="lazy"` (y `eager` + `fetchPriority="high"` en hero/producto principal)
+- Public `dummyjson.com` data, total `194` hardcoded in `RenderAllProducts.jsx`
+- No tests or linter; UI is in English
+- Images with `loading="lazy"` (and `eager` + `fetchPriority="high"` on hero/main product)
