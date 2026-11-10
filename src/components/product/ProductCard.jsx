@@ -90,7 +90,7 @@ export default function ProductCard({ product, variant = 'default', isNew, isLaz
           <img 
             src={optimizedImg(product?.images?.[0], 280, 280)} 
             alt={`${product?.title} product photo`} 
-            className={`w-full h-full ${variant === 'allProducts' || 'relative z-10'} `} 
+            className={`w-full h-full aspect-square ${variant === 'allProducts' || 'relative z-10'} `} 
             loading={isLazy ? 'lazy' : "eager"}
             />
             

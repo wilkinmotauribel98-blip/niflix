@@ -125,7 +125,7 @@ export default function HeroSection() {
         onTransitionEnd={handleTransitionEnd}
       >
         <Slide key="start clone" product={products[products.length - 1]} size={size} />
-        {products.map((p, index) => <Slide key={p.id} product={p} size={size} isActive={index + 1 == slide} isNext={index + 1 == slide + 1} />)}
+        {products.map((p) => <Slide key={p.id} product={p} size={size} />)}
         <Slide key="end clone" product={products[0]} size={size} />
       </div>
       <div 

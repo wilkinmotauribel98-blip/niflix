@@ -2,7 +2,7 @@ import { Button } from './Button'
 import { optimizedImg } from '@/utils/optimizedImg'
 import AverageRating from './AverageRating'
 import PriceSection from './PriceSection'
-export function Slide({product, size, isActive, isNext}) {
+export function Slide({product, size}) {
   
   return(
     <article 
@@ -16,21 +16,20 @@ export function Slide({product, size, isActive, isNext}) {
         >
         </div>
         <img 
-        src={optimizedImg(product?.images?.[0], 820, 820)} 
+        src={optimizedImg(product?.images?.[0], 520, 480)} 
         alt={`Featured product: ${product?.title}`} 
-        fetchpriorit={isActive || isNext ? 'high' : 'low'}
-        className=" object-cover z-10 w-full pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
-        loading={isActive || isNext ? 'eager' : 'lazy'}
+        fetchpriority='high'
+        className="object-cover z-10 w-full pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
          />
       </div>
-      <div className="z-10 bottom-0  justify-end pb-5  absolute px-4  sm:ml-10 flex flex-col gap-0.5 sm:gap-2 lg:gap-3 xl:gap-4.5  " >
+      <div className="z-10 bottom-0  justify-end pb-5 absolute px-4  sm:ml-10 flex flex-col gap-0.5 sm:gap-2 lg:gap-3 xl:gap-4.5  " >
         {
           product.brand &&
           <span className='bg-emerald-700 sm:block border border-emerald-500 text-emerald-400 rounded-full py-1 px-3 w-fit'>{product.brand}</span>
           }
         <h2 
-        className="text-shadow-amber-500  text-lg  sm:text-3xl  md:text-4xl lg:text-5xl text-zinc-100  font-light text-balance "
-        aria-label={`Title for ${product?.title}`}
+        className="text-shadow-amber-500   text-lg  sm:text-3xl  md:text-4xl lg:text-5xl text-zinc-100  font-light text-balance "
+        aria-label={`${product?.title}`}
         style={{textShadow: '0px 0px 10px rgba(255, 255, 255, 0.1)', width: `${size * 0.6}px`}}
         >
           {product?.title}
