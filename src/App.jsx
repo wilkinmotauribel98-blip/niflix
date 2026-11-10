@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate, useLocation  } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import { PageContextProvider } from '@/context/PageContext'
-import ErrorBoundary from '@/components/ui/ErrorBoundary'
 
+import ErrorBoundary from '@/components/ui/ErrorBoundary'
+import Home from '@/pages/Home'
 import Header  from '@/components/layout/header/Header'
 import Footer from '@/components/layout/footer/Footer'
 import BottomNavbar from '@/components/layout/bottomNavbar/BottomNavbar'
@@ -10,7 +11,6 @@ import PageSkeleton from '@/components/ui/PageSkeleton'
 
 import '@/index.css'
 
-const HomePage = lazy(()=>import('@/pages/Home'));
 const ShopPage = lazy(()=>import('@/pages/ShopPage'));
 const ProductPage = lazy(()=>import('@/pages/ProductPage'));
 const CartPage = lazy(()=>import('@/pages/CartPage.jsx'));
@@ -39,7 +39,7 @@ export default function App() {
       <ErrorBoundary pathname={location.pathname}>
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/product/:id/:title" element={<ProductPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/cart" element={<CartPage />} />

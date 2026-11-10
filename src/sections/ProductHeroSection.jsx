@@ -35,11 +35,11 @@ export default function ProductHeroSection({ product, loading }){
     <section className="flex flex-col md:flex-row mt-5 gap-4  m-auto">
       <div className="bg-zinc-950 flex-1 mt-0  lg:max-w-140 m-auto  border border-zinc-600 rounded-xl">
         <img 
-          className="cover w-full"
-          src={optimizedImg(product?.images?.[0], 720, 720)} 
+          className="cover w-full h-full"
+          src={optimizedImg(product?.images?.[0], 600, 600)} 
           alt={`Main photo of ${product.title}`}
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           />
       </div>
     

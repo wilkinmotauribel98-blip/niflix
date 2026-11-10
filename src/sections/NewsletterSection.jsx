@@ -13,7 +13,7 @@ export default function NewsletterSection() {
               <input type="email" placeholder="Your email address" id="email" autoComplete="email" className='text-white border border-zinc-700 bg-[#1A1A1A] rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-800'/>
               <button 
                type="submit"
-               className='text-white bg-emerald-400/80 px-6 rounded-sm py-2'
+               className='text-white bg-emerald-400/70 px-6 rounded-sm py-2'
                >Subscribe</button>
             </form>
           </div>

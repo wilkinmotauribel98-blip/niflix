@@ -1,10 +1,12 @@
 import { Button } from './Button'
 import { optimizedImg } from '@/utils/optimizedImg'
+import { Link } from 'react-router-dom'
 import AverageRating from './AverageRating'
 import PriceSection from './PriceSection'
 export function Slide({product, size}) {
   
   return(
+  <Link to={`/product/${product.id}/${product?.title?.toLowerCase().replace(/\s/g, '-')}`}>
     <article 
     className={`z-0 relative  overflow-hidden pt-3 sm:pt-0`}   
     aria-label={`Slide for ${product?.title}`}
@@ -25,7 +27,7 @@ export function Slide({product, size}) {
       <div className="z-10 bottom-0  justify-end pb-5 absolute px-4  sm:ml-10 flex flex-col gap-0.5 sm:gap-2 lg:gap-3 xl:gap-4.5  " >
         {
           product.brand &&
-          <span className='bg-emerald-700 sm:block border border-emerald-500 text-emerald-400 rounded-full py-1 px-3 w-fit'>{product.brand}</span>
+          <span className='bg-emerald-700 sm:block border border-emerald-500 text-emerald-300 rounded-full py-1 px-3 w-fit'>{product.brand}</span>
           }
         <h2 
         className="text-shadow-amber-500   text-lg  sm:text-3xl  md:text-4xl lg:text-5xl text-zinc-100  font-light text-balance "
@@ -43,7 +45,7 @@ export function Slide({product, size}) {
             <PriceSection product={product}/>
           </div>
         <p 
-        className="text-zinc-500 line-clamp-2 xl:line-clamp-3  text-pretty "
+        className="text-zinc-400 line-clamp-2 xl:line-clamp-3 text-pretty "
         aria-label={`Description for ${product?.title}`}
         style={{textShadow: '0px 0px 10px rgba(255, 255, 255, 0.1)', width: `${size * 0.4}px`}}
         >
@@ -52,5 +54,6 @@ export function Slide({product, size}) {
         <Button title={'Shop Collection'} href={`/product/${product.id}/${product?.title.toLowerCase().replace(/\s/g, '-')}`} slide={true} />
       </div>
     </article>
+  </Link>
   )
 }
