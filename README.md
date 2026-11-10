@@ -2,7 +2,7 @@
 
 Ecommerce frontend built with React + Vite + Tailwind. Catalog, live search, filters, persistent cart and a simulated 4-step checkout. Data from `dummyjson.com`.
 
-**Live demo:** https://niflix.vercel.app
+**Live demo:** https://niflix-eight.vercel.app
 **Repository:** https://github.com/wilkinmotauribel98-blip/niflix
 
 > Portfolio project. No real backend, authentication or payments — checkout is simulated.
