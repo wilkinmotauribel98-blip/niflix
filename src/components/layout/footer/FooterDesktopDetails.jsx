@@ -7,19 +7,19 @@ export default function FooterDesktopDetails() {
         <nav className="flex-1" name="footer-customer-care" aria-label="Customer Care Links">
           <span className='text-zinc-200' aria-label="Customer Care">Customer Care</span>
           <ul>
-            <li className='text-zinc-400' aria-label="Contact Us">Contact Us</li>
-            <li className='text-zinc-400' aria-label="Shipping & Delivery">Shipping & Delivery</li>
-            <li className='text-zinc-400' aria-label="Returns & Refunds">Returns & Refunds</li>
-            <li className='text-zinc-400' aria-label="FAQs">FAQs</li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Contact Us"><Link to="/contact-us">Contact Us</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Shipping & Delivery"><Link to="/shipping-delivery">Shipping & Delivery</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Returns & Refunds"><Link to="/returns-refunds">Returns & Refunds</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="FAQs"><Link to="/faqs">FAQs</Link></li>
           </ul>
         </nav>
         <nav className="flex-1" name="footer-company" aria-label="Company Links">
           <span className='text-zinc-200' aria-label="Company">Company</span>
           <ul>
-            <li className='text-zinc-400' aria-label="About us">About us</li>
-            <li className='text-zinc-400' aria-label="Careers">Careers</li>
-            <li className='text-zinc-400' aria-label="Press">Press</li>
-            <li className='text-zinc-400' aria-label="Sustainability">Sustainability</li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="About us"><Link to="/about">About us</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Careers"><Link to="/careers">Careers</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Press"><Link to="/press">Press</Link></li>
+            <li className='text-zinc-400 hover:text-gray-400' aria-label="Sustainability"><Link to="/sustainability">Sustainability</Link></li>
           </ul>
         </nav>
 

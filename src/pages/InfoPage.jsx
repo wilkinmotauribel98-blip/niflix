@@ -22,6 +22,27 @@ const INFO_CONTENT = {
       "Once we receive your return, your refund is issued to the original payment method within 5 to 10 business days.",
     ],
   },
+  "orders-delivery": {
+    title: "Orders & Delivery",
+    body: [
+      "Track your order from the confirmation email or from this support page.",
+      "Shipping is free on all orders. Standard delivery takes 3 to 5 business days.",
+    ],
+  },
+  payments: {
+    title: "Payments",
+    body: [
+      "We accept credit and debit cards, PayPal, Apple Pay and Google Pay.",
+      "Checkout is simulated in this demo: no real payment is processed and card data never leaves your browser.",
+    ],
+  },
+  account: {
+    title: "Account",
+    body: [
+      "This demo does not include user accounts or authentication.",
+      "Your cart and checkout details stay in your own browser and are not sent to a server.",
+    ],
+  },
   faqs: {
     title: "FAQs",
     body: [
@@ -76,7 +97,7 @@ const INFO_CONTENT = {
 export default function InfoPage({ contentKey }) {
   const content = INFO_CONTENT[contentKey] ?? { title: "Page", body: [] };
   return (
-    <main className="max-w-360 relative m-auto w-[95%] mb-20">
+    <main className="max-w-360 relative h-screen m-auto w-[95%] mb-20">
       <BreadCrumbSection title={content.title} cart={true} />
       <h1 className="text-white text-4xl my-5">{content.title}</h1>
       <div className="flex flex-col gap-4 max-w-3xl">

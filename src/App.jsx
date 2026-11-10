@@ -59,6 +59,9 @@ export default function App() {
           <Route path='/contact-us' element={<InfoPage contentKey="contact" />} />
           <Route path='/shipping-delivery' element={<InfoPage contentKey="shipping-delivery" />} />
           <Route path='/returns-refunds' element={<InfoPage contentKey="returns-refunds" />} />
+          <Route path='/orders-delivery' element={<InfoPage contentKey="orders-delivery" />} />
+          <Route path='/payments' element={<InfoPage contentKey="payments" />} />
+          <Route path='/account' element={<InfoPage contentKey="account" />} />
           <Route path='/faqs' element={<InfoPage contentKey="faqs" />} />
           <Route path='/about' element={<InfoPage contentKey="about" />} />
           <Route path='/careers' element={<InfoPage contentKey="careers" />} />
