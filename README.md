@@ -2,7 +2,7 @@
 
 Ecommerce frontend built with React + Vite + Tailwind. Catalog, live search, filters, persistent cart and a simulated 4-step checkout. Data from `dummyjson.com`.
 
-**Live demo:** https://wilkinmotauribel98-blip.github.io/niflix
+**Live demo:** https://niflix.vercel.app
 **Repository:** https://github.com/wilkinmotauribel98-blip/niflix
 
 > Portfolio project. No real backend, authentication or payments — checkout is simulated.
@@ -33,10 +33,10 @@ Ecommerce frontend built with React + Vite + Tailwind. Catalog, live search, fil
 ## Features
 
 - Home: hero carousel, category shortcuts, new arrivals, best sellers, newsletter
-- Shop `/niflix/shop` with pagination; Categories page with product counts
+- Shop `/shop` with pagination; Categories page with product counts
 - Category detail with price/brand/rating filters and a `Clear All` button
 - Product detail: discount, stock, weight, dimensions, minimum order, quantity, `Add to cart` and `Buy Now`, warranties, tabs (Description/Specifications/Reviews) and recommendations
-- Live search with suggestions (`/niflix/results/search?q=`); no persisted search history
+- Live search with suggestions (`/results/search?q=`); no persisted search history
 - Cart: add / quantity / remove, drawer + page, 18% tax (`TAX_RATE`), persisted in `localStorage`, related products
 - Checkout with nested routes: `shipping → payment → review → done`, forms validated with react-hook-form, live card type detection, order number with copy button
 - Responsive: desktop Header + mobile BottomNavbar, skeletons, lazy routes with `Suspense`
@@ -46,7 +46,7 @@ Ecommerce frontend built with React + Vite + Tailwind. Catalog, live search, fil
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173/niflix
+npm run dev      # http://localhost:5173
 npm run build
 npm run preview
 ```
@@ -57,7 +57,7 @@ No `.env` is needed. The API URL is hardcoded to `https://dummyjson.com` in `src
 
 ```text
 src/
-  App.jsx            # routes + lazy pages, base /niflix
+  App.jsx            # routes + lazy pages, base /
   main.jsx           # BrowserRouter + StrictMode
   api/products.js    # fetchProduct, fetchCategories, searchProducts
   hooks/
@@ -84,7 +84,7 @@ src/
     detectCardTypeLive.js  # live detection while typing
 ```
 
-Routes: all start with `/niflix` (`vite.config.js: base`). Checkout uses a nested `<Outlet/>` with a redirect to the `shipping` step.
+Routes: served from `/` (`vite.config.js: base`), with Vercel rewriting unknown paths to `index.html` (`vercel.json`). Checkout uses a nested `<Outlet/>` with a redirect to the `shipping` step.
 
 State: zustand + persist, no Redux. Forms with react-hook-form.
 

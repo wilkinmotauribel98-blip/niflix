@@ -10,8 +10,6 @@ function displayNameOf(isoCode) {
   }
 }
 
-// Country list without shipping the country-state-city dataset (~8 MB).
-// Shape matches the old Country.getAllCountries(): { isoCode, name }.
 export function getCountries() {
   try {
     return Intl.supportedValuesOf("region")

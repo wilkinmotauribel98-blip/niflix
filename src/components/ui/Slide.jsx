@@ -18,8 +18,8 @@ export function Slide({product, size, isActive, isNext}) {
         <img 
         src={optimizedImg(product?.images?.[0], 820, 820)} 
         alt={`Featured product: ${product?.title}`} 
-        fetchpriorit='high' 
-        className=" object-cover z-10 pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
+        fetchpriorit={isActive || isNext ? 'high' : 'low'}
+        className=" object-cover z-10 w-full pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
         loading={isActive || isNext ? 'eager' : 'lazy'}
          />
       </div>
