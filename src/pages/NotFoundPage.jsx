@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom"
+import { useEffect } from "react";
 import { publicUrl } from "@/utils/publicUrl";
+import { setTitle } from "@/utils/setTitle";
 export default function NotFoundPage() {
+  useEffect(()=>{
+      setTitle('NOT FOUND')
+      return ()=> setTitle()
+    },[] )
+  
     return(
       <main className="max-w-360 mb-60 w-[95%] m-auto justify-center items-center justify-items-center"> 
         <div className="w-200">

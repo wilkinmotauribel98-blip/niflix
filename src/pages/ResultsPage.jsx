@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom"
-
+import { useEffect } from "react";
+import { setTitle} from "../utils/setTitle";
 import useFetch from "@/hooks/useFetch";
 import BreadCrumbSection from "@/sections/BreadCrumbSection";
 import RenderResults from "@/components/results/RenderResults";
@@ -12,7 +13,10 @@ export default function ResultsPage(){
   const query = searchParams.get('q');
   const { loading, data, error, retry } = useFetch(`https://dummyjson.com/products/search?q=${query}`)
  
-
+  useEffect(()=>{
+      setTitle(query + ' - NIFLIX')
+      return ()=> setTitle()
+    })
   if(!query) return null
 
   if(error) {

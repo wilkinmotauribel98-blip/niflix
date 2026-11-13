@@ -1,14 +1,22 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import BreadCrumbSection from "@/sections/BreadCrumbSection"
 import ProductHeroSection from "@/sections/ProductHeroSection";
 import TrustBarSection from '@/sections/TrustBarSection'
 import ProductTabsSection from "@/sections/ProductTabsSection";
 import useFetch from "@/hooks/useFetch";
 import ErrorState from "@/components/ui/ErrorState";
+import { setTitle } from "../utils/setTitle";
+
 export default function ProductPage() {
   const { id } = useParams();
   const { data, loading, error, retry } = useFetch(`https://dummyjson.com/products/${id}`)
-
+  useEffect(()=>{
+    if(!data?.title) return
+    const title = `${data.title} - ${data.description.slice(0, 150)}`
+    setTitle(title)
+    return ()=> setTitle()
+  }, [id, data])
   if(error){
     return(
       <ErrorState 
@@ -19,6 +27,8 @@ export default function ProductPage() {
     )
   }
   
+
+
   return (
     <main className="max-w-360 m-auto z-0 bg-black overflow-hidden   w-[95%]" aria-label="Product Page Main Content">
       <BreadCrumbSection loading={loading} category={data?.category}  title={data?.title} product={true}/>

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect  } from "react";
+import { setTitle } from "../utils/setTitle";
 import BreadCrumbSection from "@/sections/BreadCrumbSection"
 import CategoryContent from "@/components/category/CategoryContent";
 import CategoryContentSkeleton from "@/components/category/CategoryContentSkeleton";
@@ -7,6 +8,12 @@ import CategoryContentSkeleton from "@/components/category/CategoryContentSkelet
 import useFetch from "@/hooks/useFetch";
 import ErrorState from "@/components/ui/ErrorState";
 
+function capitalizeFirstLetter(val) {
+    const words = String(val).split(' ');
+    return words.map((e)=>{
+      return e.charAt(0).toUpperCase() + e.slice(1);
+    }).join(' ')
+}
 
 export default function CategoryPage() {
   const [products, setProducts] = useState();
@@ -14,6 +21,7 @@ export default function CategoryPage() {
   const { category } = useParams();
   const CATEGORY_URL = `https://dummyjson.com/products/category/${category}`
   const { error, data, loading, retry } = useFetch(CATEGORY_URL)
+
 
   useEffect(()=>{
     if(data){
@@ -25,7 +33,14 @@ export default function CategoryPage() {
    },[])
       })
     }
+    
   },[data] )
+
+    useEffect(()=>{
+    setTitle(capitalizeFirstLetter(category.replace(/-/g, ' ')))
+    return ()=> setTitle()
+  },[data] )
+
 
   if(error) {
         return(

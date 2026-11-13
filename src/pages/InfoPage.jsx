@@ -1,5 +1,6 @@
 import BreadCrumbSection from "@/sections/BreadCrumbSection";
-
+import { setTitle } from "../utils/setTitle";
+import { useEffect } from "react";
 const INFO_CONTENT = {
   contact: {
     title: "Contact Us",
@@ -95,7 +96,14 @@ const INFO_CONTENT = {
 };
 
 export default function InfoPage({ contentKey }) {
+
   const content = INFO_CONTENT[contentKey] ?? { title: "Page", body: [] };
+  useEffect(()=>{
+      setTitle(content.title)
+      return ()=> setTitle()
+    },[] )
+  
+
   return (
     <main className="max-w-360 relative h-screen m-auto w-[95%] mb-20">
       <BreadCrumbSection title={content.title} cart={true} />

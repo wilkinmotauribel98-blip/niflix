@@ -16,7 +16,7 @@ export default function HeroSection() {
   const isTransitioning = useRef(false)
   const slideRef = useRef(slide);
   slideRef.current = slide;
-
+  
   const prev = () => {
     if(isTransitioning.current) return
     isTransitioning.current = true;
@@ -136,7 +136,7 @@ export default function HeroSection() {
           <button 
             key={`dot${e.id}`}
             aria-label={`Go to slide ${index + 1}`}
-            className={`w-3.5 h-3.5 rounded-full cursor-pointer  ${index == slide - 1 || slide === 0 ? 'bg-emerald-400' : 'bg-gray-600'}`}
+            className={`w-3.5 h-3.5 rounded-full cursor-pointer  ${index + 1 == slide  ? 'bg-emerald-400' : 'bg-gray-600'}`}
             onClick={()=> setSlide(index + 1)}>
           </button> 
           )}

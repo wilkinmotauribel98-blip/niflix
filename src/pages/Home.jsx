@@ -14,7 +14,10 @@ import  NewsletterSection  from "@/sections/NewsletterSection"
 export default function Home() {
 
   const fetchProducts = useProducts((state)=> state.fetchHomeProducts);
-  useEffect(()=>{fetchProducts()},[])
+  useEffect(()=>{
+    fetchProducts()
+  },[])
+  
 
   return (
     <main className="max-w-360 m-auto z-0 bg-black overflow-hidden  w-dvw" aria-label="Home Page Main Content">
