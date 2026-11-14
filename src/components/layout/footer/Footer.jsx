@@ -1,8 +1,9 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { publicUrl } from "@/utils/publicUrl";
+
 import FooterDesktopDetails from "./FooterDesktopDetails";
 import FooterMobileDetails from "./FooterMobileDetails";
-import { publicUrl } from "@/utils/publicUrl";
 
 export default function Footer() {
   const [size, setSize] = useState(window.innerWidth);
@@ -12,6 +13,7 @@ export default function Footer() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
 
   return (
     <footer className="w-full max-w-400 mb-25 lg:mb-0 bg-black  flex flex-col items-center justify-center m-auto z-50"
@@ -28,7 +30,10 @@ export default function Footer() {
           <p className="text-zinc-400 text-sm sm:text-lg" aria-label="Footer Description">Beyond technology.</p>
           <p className="text-zinc-400 text-sm sm:text-lg" aria-label="Footer Tagline">Elevate your everyday</p>
         </article>
-        {size >= 768 ? <FooterDesktopDetails /> : <FooterMobileDetails />}
+        {size >= 768 ? <FooterDesktopDetails /> :  <FooterMobileDetails />
+       
+
+        }
       </section>
 
     <section className="flex flex-col md:flex-row gap-3 items-center w-full " aria-label="Footer Section">

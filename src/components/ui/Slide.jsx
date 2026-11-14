@@ -3,7 +3,7 @@ import { optimizedImg } from '@/utils/optimizedImg'
 import { Link } from 'react-router-dom'
 import AverageRating from './AverageRating'
 import PriceSection from './PriceSection'
-export function Slide({product, size}) {
+export function Slide({product, size, isEager}) {
   
   return(
   <Link to={`/product/${product.id}/${product?.title?.toLowerCase().replace(/\s/g, '-')}`}>
@@ -20,7 +20,8 @@ export function Slide({product, size}) {
         <img 
         src={optimizedImg(product?.images?.[0], 520, 480)} 
         alt={`Featured product: ${product?.title}`} 
-        fetchpriority='high'
+        fetchpriority={isEager ? 'high' : 'low'}
+        loading={isEager ? 'eager' : 'lazy'}
         className="object-cover z-10 w-full pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
          />
       </div>

@@ -10,9 +10,11 @@ export default function YouMayAlsoLikeCard({product, category, isLazy}){
     > 
       <div>
         <img 
-          src={optimizedImg(product.images?.[0], 400, 400)} 
+          src={optimizedImg(product.images?.[0], 300, 300)} 
           alt={`Recommended product: ${product.title}`}
           loading={isLazy ? 'lazy' : 'eager'}
+          fetchPriority={isLazy ? 'low' : 'high'}
+          className="aspect-square w-full h-full"
           />
       </div>
       <div className="flex flex-col gap-2">

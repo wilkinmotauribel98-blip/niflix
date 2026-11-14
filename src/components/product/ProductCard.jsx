@@ -92,6 +92,7 @@ export default function ProductCard({ product, variant = 'default', isNew, isLaz
             alt={`${product?.title} product photo`} 
             className={`w-full h-full aspect-square ${variant === 'allProducts' || 'relative z-10'} `} 
             loading={isLazy ? 'lazy' : "eager"}
+            fetchpriority={isLazy ? 'low' : "high"}
             />
             
         </div>
