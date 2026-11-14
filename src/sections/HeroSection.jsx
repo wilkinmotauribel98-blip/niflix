@@ -136,7 +136,7 @@ export default function HeroSection() {
           <button 
             key={`dot${e.id}`}
             aria-label={`Go to slide ${index + 1}`}
-            className={`w-3.5 h-3.5 rounded-full cursor-pointer  ${index + 1 == slide  ? 'bg-emerald-400' : 'bg-gray-600'}`}
+            className={`w-4 h-4 rounded-full cursor-pointer  ${index + 1 == slide  ? 'bg-emerald-400' : 'bg-gray-600'}`}
             onClick={()=> setSlide(index + 1)}>
           </button> 
           )}

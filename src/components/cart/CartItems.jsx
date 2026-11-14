@@ -1,10 +1,14 @@
 import CartItem from "./CartItem"
 import CartSummary from "./CartSummary";
+import NoItems from "./NoItems";
 import { useCart } from '@/hooks/useCart'
 
 export default function CartItems(){
   const cart = useCart((state) => state.cart);
-  
+  const isEmpty = Object.keys(cart).length === 0;
+
+  if (isEmpty) return <NoItems />;
+
   return (
     <section className="lg:flex gap-5">
       <div className="border mb-10 flex-1  border-zinc-800 flex flex-col rounded-2xl overflow-hidden">

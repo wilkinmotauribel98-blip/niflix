@@ -42,7 +42,7 @@ export default function AddToCart({product, price}){
           >+</button>
           </div>
           <button 
-            className={`bg-emerald-500 py-3 w-fit px-2 flex-1  text-zinc-100 sm:px-10 hover:opacity-50 cursor-pointer sm:mt-0`}
+            className={`bg-emerald-500/50 py-3 w-fit px-2 flex-1  text-white sm:px-10 hover:opacity-50 cursor-pointer sm:mt-0`}
             aria-label={`Add to cart`}
             onClick={()=> {
               setCart(cartProduct, product.id)

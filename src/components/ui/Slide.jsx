@@ -20,7 +20,7 @@ export function Slide({product, size, isEager}) {
         <img 
         src={optimizedImg(product?.images?.[0], 520, 480)} 
         alt={`Featured product: ${product?.title}`} 
-        fetchpriority={isEager ? 'high' : 'low'}
+        fetchPriority={isEager ? 'high' : 'low'}
         loading={isEager ? 'eager' : 'lazy'}
         className="object-cover z-10 w-full pb-8 aspect-16/15 xl:max-w-120 m-auto relative" 
          />
@@ -28,10 +28,10 @@ export function Slide({product, size, isEager}) {
       <div className="z-10 bottom-0  justify-end pb-5 absolute px-4  sm:ml-10 flex flex-col gap-0.5 sm:gap-2 lg:gap-3 xl:gap-4.5  " >
         {
           product.brand &&
-          <span className='bg-emerald-700 sm:block border border-emerald-500 text-emerald-300 rounded-full py-1 px-3 w-fit'>{product.brand}</span>
+          <span className='bg-emerald-700 sm:block border border-emerald-500 text-white rounded-full py-1 px-3 w-fit'>{product.brand}</span>
           }
         <h2 
-        className="text-shadow-amber-500   text-lg  sm:text-3xl  md:text-4xl lg:text-5xl text-zinc-100  font-light text-balance "
+        className="text-shadow-amber-500 text-xl   sm:text-3xl  md:text-4xl lg:text-5xl text-zinc-100  font-light text-balance "
         aria-label={`${product?.title}`}
         style={{textShadow: '0px 0px 10px rgba(255, 255, 255, 0.1)', width: `${size * 0.6}px`}}
         >
@@ -46,7 +46,7 @@ export function Slide({product, size, isEager}) {
             <PriceSection product={product}/>
           </div>
         <p 
-        className="text-zinc-400 line-clamp-2 xl:line-clamp-3 text-pretty "
+        className="text-zinc-400 line-clamp-1 sm:ine-clamp-2  xl:line-clamp-3 ltext-pretty "
         aria-label={`Description for ${product?.title}`}
         style={{textShadow: '0px 0px 10px rgba(255, 255, 255, 0.1)', width: `${size * 0.4}px`}}
         >

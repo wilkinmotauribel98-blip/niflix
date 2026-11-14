@@ -92,7 +92,6 @@ export default function ProductCard({ product, variant = 'default', isNew, isLaz
             alt={`${product?.title} product photo`} 
             className={`w-full h-full aspect-square ${variant === 'allProducts' || 'relative z-10'} `} 
             loading={isLazy ? 'lazy' : "eager"}
-            fetchpriority={isLazy ? 'low' : "high"}
             />
             
         </div>
@@ -102,7 +101,7 @@ export default function ProductCard({ product, variant = 'default', isNew, isLaz
         )}
 
         <div className={`${variant === 'allProducts' ? 'w-full justify-end px-2 flex flex-col pl-3  flex-1' : 'absolute bottom-3 w-full'} `}>
-           { variant === 'allProducts' && <span className="sm:absolute w-fit top-3 capitalize left-4 bg-emerald-700 text-emerald-300  rounded-full px-2">{product?.category?.replace(/-/g, ' ')}</span> 
+           { variant === 'allProducts' && <span className="sm:absolute w-fit top-3 capitalize left-4 bg-emerald-700 text-white  rounded-full px-2">{product?.category?.replace(/-/g, ' ')}</span> 
           }
 
           <h3 className={`text-white p-0 m-0 ${config.titleClass}`}>

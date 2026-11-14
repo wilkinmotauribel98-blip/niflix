@@ -39,7 +39,7 @@ export default function ProductHeroSection({ product, loading }){
           src={optimizedImg(product?.images?.[0], 600, 600)} 
           alt={`Main photo of ${product.title}`}
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           />
       </div>
     
@@ -64,7 +64,7 @@ export default function ProductHeroSection({ product, loading }){
             <span>Availability: in stock ({product.stock} units)</span>
         </div>
         <AddToCart product={product} price={price}/>
-        <button className="border border-zinc-600 py-2 cursor-pointer rounded">Buy Now</button>
+        
       </article>
     </section>
   )
